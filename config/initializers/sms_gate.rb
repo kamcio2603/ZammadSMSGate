@@ -22,3 +22,17 @@ Rails.application.config.after_initialize do
   )
 end
 
+Rails.application.reloader.to_prepare do
+  Ticket::Article::Type.create_if_not_exists(
+    name: 'sms',
+    communication: true,
+    updated_by_id: 1,
+    created_by_id: 1
+  )
+
+  Channel.register_addable(
+    name: 'SMS Gate',
+    provider: 'sms_gate'
+  )
+end
+
