@@ -8,9 +8,6 @@ Rails.application.config.to_prepare do
     created_by_id: 1
   )
 
-  Channel.register_addable(
-    name: 'SMS Gate',
-    adapter: 'sms'
-  )
+  Channel.add_adapter('sms')
 end
 
