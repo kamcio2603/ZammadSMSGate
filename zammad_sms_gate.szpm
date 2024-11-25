@@ -1,0 +1,30 @@
+{
+  "name": "SMS Gate Integration",
+  "version": "1.0.0",
+  "vendor": "Your Company",
+  "license": "MIT",
+  "url": "https://github.com/yourusername/zammad_sms_gate",
+  "description": {
+    "en": "Allows sending SMS via SMS Gate API directly from tickets"
+  },
+  "files": [
+    {
+      "location": "lib/sms_gate.rb",
+      "permission": "644",
+      "encode": "base64",
+      "content": "BASE64_ENCODED_CONTENT_HERE"
+    }
+  ],
+  "installation_instructions": {
+    "en": "1. Set up API key in admin interface\n2. Configure SMS notifications in trigger settings"
+  },
+  "package_state": "stable",
+  "zammad_version": "6.0.x",
+  "gem_dependencies": [
+    {
+      "gem": "http",
+      "version": ">= 4.0.0"
+    }
+  ]
+}
+
