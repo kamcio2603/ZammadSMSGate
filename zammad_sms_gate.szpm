@@ -12,11 +12,17 @@
       "location": "lib/sms_gate.rb",
       "permission": "644",
       "encode": "base64",
-      "content": "BASE64_ENCODED_CONTENT_HERE"
+      "content": "BASE64_ENCODED_CONTENT_OF_SMS_GATE_RB"
+    },
+    {
+      "location": "app/models/channel/driver/sms/sms_gate.rb",
+      "permission": "644",
+      "encode": "base64",
+      "content": "BASE64_ENCODED_CONTENT_OF_SMS_GATE_DRIVER_RB"
     }
   ],
   "installation_instructions": {
-    "en": "1. Set up API key in admin interface\n2. Configure SMS notifications in trigger settings"
+    "en": "1. Set up API key in admin interface under Channels -> SMS -> SMS Gate\n2. Configure SMS notifications in trigger settings"
   },
   "package_state": "stable",
   "zammad_version": "6.0.x",
