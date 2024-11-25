@@ -1,14 +1,4 @@
 module SmsGate
-  class << self
-    def config
-      @config ||= {}
-    end
-
-    def configure
-      yield(config)
-    end
-  end
-
   class Api
     def initialize(config)
       @api_key = config[:api_key]
@@ -31,6 +21,17 @@ module SmsGate
       JSON.parse(response.body.to_s)
     end
   end
+end
+
+# Ensure the Channel module is defined
+module Channel
+  module Driver
+    # This is just a placeholder to ensure the module hierarchy exists
+  end
+end
+
+# Load the SmsGate driver
+require_relative '../app/models/channel/driver/sms_gate'
 end
 
 Zammad::Application.routes.draw do

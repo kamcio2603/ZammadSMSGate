@@ -15,7 +15,7 @@
       "content": "BASE64_ENCODED_CONTENT_OF_SMS_GATE_RB"
     },
     {
-      "location": "app/models/channel/driver/sms/sms_gate.rb",
+      "location": "app/models/channel/driver/sms_gate.rb",
       "permission": "644",
       "encode": "base64",
       "content": "BASE64_ENCODED_CONTENT_OF_SMS_GATE_DRIVER_RB"
@@ -33,4 +33,3 @@
     }
   ]
 }
-
