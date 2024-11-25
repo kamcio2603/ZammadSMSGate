@@ -1,28 +1,7 @@
-Rails.application.config.after_initialize do
-  Setting.create_if_not_exists(
-    title: 'SMS Gate API Key',
-    name: 'sms_gate_api_key',
-    area: 'Integration::SmsGate',
-    description: 'API key for SMS Gate integration',
-    options: {
-      form: [
-        {
-          display: 'API Key',
-          null: false,
-          name: 'sms_gate_api_key',
-          tag: 'input',
-        },
-      ],
-    },
-    state: '',
-    preferences: {
-      permission: ['admin.integration'],
-    },
-    frontend: false
-  )
-end
+Zammad::Application.config.after_initialize do
+  return if !Setting.exists?(state: 'running')
+  return if !ActiveRecord::Base.connection.active?
 
-Rails.application.reloader.to_prepare do
   Ticket::Article::Type.create_if_not_exists(
     name: 'sms',
     communication: true,
@@ -32,7 +11,7 @@ Rails.application.reloader.to_prepare do
 
   Channel.register_addable(
     name: 'SMS Gate',
-    provider: 'sms_gate'
+    provider: 'sms'
   )
 end
 
