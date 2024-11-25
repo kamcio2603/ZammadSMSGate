@@ -3,10 +3,10 @@ module Channel
     class Sms::Gate
       NAME = 'sms_gate'
 
-      def self.driver_definition
+      def self.definition
         {
           name: 'SMS Gate',
-          adapter: :sms_gate,
+          adapter: 'sms_gate',
           account: [
             { name: 'api_key', display: 'API Key', tag: 'input', type: 'text', limit: 100, null: false },
             { name: 'api_url', display: 'API URL', tag: 'input', type: 'text', limit: 100, null: false },
@@ -19,32 +19,12 @@ module Channel
         }
       end
 
-      def self.driver_name
-        'SMS Gate'
+      def self.available?(_channel)
+        true
       end
 
-      def self.driver_adapter
-        'sms_gate'
-      end
-
-      def self.send(options, attr, notification = false)
-        return false if !options[:recipient]
-
-        sms_gate = ::SmsGate.new(
-          options[:api_key],
-          options[:api_url]
-        )
-
-        message = NotificationFactory::Renderer.new(
-          objects: { ticket: options[:ticket] },
-          locale: 'pl-pl'
-        ).render(attr)
-
-        sms_gate.send_sms(
-          to: options[:recipient],
-          message: message,
-          from: options[:sender] || options[:sender_number]
-        )
+      def self.notification?
+        true
       end
     end
   end
