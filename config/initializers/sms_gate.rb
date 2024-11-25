@@ -1,5 +1,5 @@
-Zammad::Application.config.after_initialize do
-  return if !ActiveRecord::Base.connection.active?
+Rails.application.config.to_prepare do
+  next if !ActiveRecord::Base.connection.active?
 
   Ticket::Article::Type.create_if_not_exists(
     name: 'sms',
