@@ -2,6 +2,8 @@ module Channel
   class Driver
     class Sms
       class Gate
+        NAME = 'sms_gate'
+
         def self.definition
           {
             name: 'SMS Gate',
