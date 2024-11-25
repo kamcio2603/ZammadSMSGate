@@ -1,5 +1,4 @@
 Zammad::Application.config.after_initialize do
-  return if !Setting.exists?(state: 'running')
   return if !ActiveRecord::Base.connection.active?
 
   Ticket::Article::Type.create_if_not_exists(
@@ -11,7 +10,7 @@ Zammad::Application.config.after_initialize do
 
   Channel.register_addable(
     name: 'SMS Gate',
-    provider: 'sms'
+    provider: 'sms_gate'
   )
 end
 

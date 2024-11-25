@@ -25,7 +25,7 @@
       "location": "config/initializers/sms_gate.rb",
       "permission": "644",
       "encode": "base64",
-      "content": "WmFtbWFkOjpBcHBsaWNhdGlvbi5jb25maWcuYWZ0ZXJfaW5pdGlhbGl6ZSBkbwogIHJldHVybiBpZiAhU2V0dGluZy5leGlzdHM/KHN0YXRlOiAncnVubmluZycpCiAgcmV0dXJuIGlmICFBY3RpdmVSZWNvcmQ6OkJhc2UuY29ubmVjdGlvbi5hY3RpdmU/CgogIFRpY2tldDo6QXJ0aWNsZTo6VHlwZS5jcmVhdGVfaWZfbm90X2V4aXN0cygKICAgIG5hbWU6ICdzbXMnLAogICAgY29tbXVuaWNhdGlvbjogdHJ1ZSwKICAgIHVwZGF0ZWRfYnlfaWQ6IDEsCiAgICBjcmVhdGVkX2J5X2lkOiAxCiAgKQoKICBDaGFubmVsLnJlZ2lzdGVyX2FkZGFibGUoCiAgICBuYW1lOiAnU01TIEdhdGUnLAogICAgcHJvdmlkZXI6ICdzbXNfZ2F0ZScKICApCmVuZA=="
+      "content": "WmFtbWFkOjpBcHBsaWNhdGlvbi5jb25maWcuYWZ0ZXJfaW5pdGlhbGl6ZSBkbwogIHJldHVybiBpZiAhQWN0aXZlUmVjb3JkOjpCYXNlLmNvbm5lY3Rpb24uYWN
     }
   ],
   "zammad_version": "6.0.x, 5.x",
