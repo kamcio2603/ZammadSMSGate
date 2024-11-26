@@ -9,7 +9,7 @@ class Channel::Driver::Sms::Gate < Channel::Driver::Sms::Base
   end
 
   def self.driver_class
-    'Sms::Gate'
+    'Channel::Driver::Sms::Gate'
   end
 
   def self.description
