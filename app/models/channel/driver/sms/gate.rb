@@ -18,48 +18,53 @@ class Channel::Driver::Sms::Gate < Channel::Driver::Sms::Base
 
   def self.config
     {
-      api_key:       { name: 'API Key', type: 'text' },
-      api_url:       { name: 'API URL', type: 'text' },
-      sender_number: { name: 'Sender Number', type: 'text' },
-    }
-  end
-
-  def self.notification_options
-    {
-      sender: { name: 'Sender', type: 'text' },
+      api_key:       { name: 'API Key', type: 'text', required: true },
+      api_url:       { name: 'API URL', type: 'text', required: true },
+      sender_number: { name: 'Sender Number', type: 'text', required: false },
     }
   end
 
   def account_data_validation(account)
-    return [] if !account
-    return [] if !account['api_key']
-    return [] if !account['api_url']
-    []
+    errors = []
+    errors.push('API Key missing') if account['api_key'].blank?
+    errors.push('API URL missing') if account['api_url'].blank?
+    errors
   end
 
   def send(options)
-    return false if !options[:recipient]
-    return false if !options[:message]
+    return false if options[:recipient].blank? || options[:message].blank?
 
     begin
       response = HTTP
         .headers(accept: 'application/json', 'x-api-key': options[:api_key])
-        .post(options[:api_url] + '/send', json: {
-          to: options[:recipient].gsub(/[^\d+]/, ''),
+        .post("#{options[:api_url]}/send", json: {
+          to: sanitize_phone_number(options[:recipient]),
           message: options[:message],
           from: options[:sender_number]
         })
 
-      if response.status.success?
-        Rails.logger.info "SMS sent successfully: #{JSON.parse(response.body.to_s)['message_id']}"
-        true
-      else
-        Rails.logger.error "SMS sending failed: #{JSON.parse(response.body.to_s)['error']}"
-        false
-      end
+      handle_response(response)
     rescue => e
       Rails.logger.error "SMS Gate error: #{e.message}"
       false
     end
+  end
+
+  private
+
+  def handle_response(response)
+    result = JSON.parse(response.body.to_s)
+    
+    if response.status.success?
+      Rails.logger.info "SMS sent successfully: #{result['message_id']}"
+      true
+    else
+      Rails.logger.error "SMS sending failed: #{result['error']}"
+      false
+    end
+  end
+
+  def sanitize_phone_number(number)
+    number.to_s.gsub(/[^\d+]/, '')
   end
 end 
