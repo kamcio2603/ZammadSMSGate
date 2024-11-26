@@ -19,7 +19,7 @@
       "location": "config/initializers/sms_gate.rb",
       "permission": "644",
       "encode": "base64",
-      "content": "UmFpbHMuYXBwbGljYXRpb24uY29uZmlnLnRvX3ByZXBhcmUgZG8KICBuZXh0IGlmICFBY3RpdmVSZWNvcmQ6OkJhc2UuY29ubmVjdGlvbi5hY3RpdmU/CgogIFRpY2tldDo6QXJ0aWNsZTo6VHlwZS5jcmVhdGVfaWZfbm90X2V4aXN0cygKICAgIG5hbWU6ICdzbXMnLAogICAgY29tbXVuaWNhdGlvbjogdHJ1ZSwKICAgIHVwZGF0ZWRfYnlfaWQ6IDEsCiAgICBjcmVhdGVkX2J5X2lkOiAxCiAgKQoKICBDaGFubmVsOjpEcml2ZXI6OlNtcy5yZWdpc3Rlcl9kcml2ZXIoJ1Ntczo6R2F0ZScpCmVuZA=="
+      "content": "UmFpbHMuYXBwbGljYXRpb24uY29uZmlnLnRvX3ByZXBhcmUgZG8KICBuZXh0IGlmICFBY3RpdmVSZWNvcmQ6OkJhc2UuY29ubmVjdGlvbi5hY3RpdmU/CgogIFRpY2tldDo6QXJ0aWNsZTo6VHlwZS5jcmVhdGVfaWZfbm90X2V4aXN0cygKICAgIG5hbWU6ICdzbXMnLAogICAgY29tbXVuaWNhdGlvbjogdHJ1ZSwKICAgIHVwZGF0ZWRfYnlfaWQ6IDEsCiAgICBjcmVhdGVkX2J5X2lkOiAxCiAgKQoKICBDaGFubmVsLnB1c2hfZHJpdmVyIENoYW5uZWw6OkRyaXZlcjo6U21zOjpHYXRlCmVuZA=="
     }
   ],
   "zammad_version": "6.0.x, 5.x",
