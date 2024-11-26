@@ -7,7 +7,5 @@ Rails.application.config.to_prepare do
     updated_by_id: 1,
     created_by_id: 1
   )
-
-  Channel.add_adapter('sms')
 end
 
