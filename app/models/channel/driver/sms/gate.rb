@@ -4,26 +4,36 @@ class Channel::Driver::Sms::Gate < Channel::Driver::Sms::Base
     'SMS Gate'
   end
 
-  def self.driver_config
-    {
-      api_key:       { value: nil },
-      api_url:       { value: nil },
-      sender_number: { value: nil },
-    }
+  def self.driver_instance
+    new
   end
 
-  def send(message, recipient)
-    return false if !recipient
-    return false if !config[:api_key]
-    return false if !config[:api_url]
+  def self.driver_class
+    'Sms::Gate'
+  end
+
+  def self.required_fields
+    [:api_key, :api_url]
+  end
+
+  def account_data_validation(account)
+    return if !account
+    return if !account['api_key']
+    return if !account['api_url']
+    account
+  end
+
+  def send(options)
+    return false if !options[:recipient]
+    return false if !options[:message]
 
     begin
       response = HTTP
-        .headers(accept: 'application/json', 'x-api-key': config[:api_key])
-        .post(config[:api_url] + '/send', json: {
-          to: recipient.gsub(/[^\d+]/, ''),
-          message: message,
-          from: config[:sender_number]
+        .headers(accept: 'application/json', 'x-api-key': options[:api_key])
+        .post(options[:api_url] + '/send', json: {
+          to: options[:recipient].gsub(/[^\d+]/, ''),
+          message: options[:message],
+          from: options[:sender_number]
         })
 
       if response.status.success?
