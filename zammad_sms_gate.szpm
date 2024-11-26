@@ -1,6 +1,6 @@
 {
   "name": "SMS Gate Integration",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "vendor": "kamcio2603",
   "license": "MIT",
   "url": "https://github.com/kamcio2603/ZammadSMSGate",
@@ -19,7 +19,7 @@
       "location": "config/initializers/sms_gate.rb",
       "permission": "644",
       "encode": "base64",
-      "content": "UmFpbHMuYXBwbGljYXRpb24uY29uZmlnLnRvX3ByZXBhcmUgZG8KICBuZXh0IGlmICFBY3RpdmVSZWNvcmQ6OkJhc2UuY29ubmVjdGlvbi5hY3RpdmU/CgogIFRpY2tldDo6QXJ0aWNsZTo6VHlwZS5jcmVhdGVfaWZfbm90X2V4aXN0cygKICAgIG5hbWU6ICdzbXMnLAogICAgY29tbXVuaWNhdGlvbjogdHJ1ZSwKICAgIHVwZGF0ZWRfYnlfaWQ6IDEsCiAgICBjcmVhdGVkX2J5X2lkOiAxCiAgKQoKICBDaGFubmVsOjpEcml2ZXI6OlNtcy5hZGQoJ0dhdGUnKQplbmQ="
+      "content": "UmFpbHMuYXBwbGljYXRpb24uY29uZmlnLnRvX3ByZXBhcmUgZG8KICBuZXh0IGlmICFBY3RpdmVSZWNvcmQ6OkJhc2UuY29ubmVjdGlvbi5hY3RpdmU/CgogIFRpY2tldDo6QXJ0aWNsZTo6VHlwZS5jcmVhdGVfaWZfbm90X2V4aXN0cygKICAgIG5hbWU6ICdzbXMnLAogICAgY29tbXVuaWNhdGlvbjogdHJ1ZSwKICAgIHVwZGF0ZWRfYnlfaWQ6IDEsCiAgICBjcmVhdGVkX2J5X2lkOiAxCiAgKQoKICBDaGFubmVsLmRyaXZlcl9jbGFzcygnQ2hhbm5lbDo6RHJpdmVyOjpTbXM6OkdhdGUnKQplbmQ="
     },
     {
       "location": "app/models/ticket/sms_decorator.rb",
