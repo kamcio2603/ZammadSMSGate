@@ -8,6 +8,6 @@ Rails.application.config.to_prepare do
     created_by_id: 1
   )
 
-  Channel::Driver::Sms.register_driver('sms_gate', 'Channel::Driver::Sms::Gate')
+  Channel.driver_class(:sms_gate, 'Channel::Driver::Sms::Gate')
 end
 
