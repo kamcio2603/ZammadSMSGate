@@ -31,7 +31,7 @@ class Channel::Driver::Sms::Gate < Channel::Driver::Sms::Base
     errors
   end
 
-  def send(options)
+  def deliver(options)
     return false if options[:recipient].blank? || options[:message].blank?
 
     begin
