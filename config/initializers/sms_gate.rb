@@ -7,5 +7,7 @@ Rails.application.config.to_prepare do
     updated_by_id: 1,
     created_by_id: 1
   )
+
+  Channel::Driver::Sms.register_driver('Sms::Gate')
 end
 

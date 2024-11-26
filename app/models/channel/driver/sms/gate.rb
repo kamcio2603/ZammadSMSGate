@@ -12,15 +12,29 @@ class Channel::Driver::Sms::Gate < Channel::Driver::Sms::Base
     'Sms::Gate'
   end
 
-  def self.required_fields
-    [:api_key, :api_url]
+  def self.description
+    'SMS Gate Provider'
+  end
+
+  def self.config
+    {
+      api_key:       { name: 'API Key', type: 'text' },
+      api_url:       { name: 'API URL', type: 'text' },
+      sender_number: { name: 'Sender Number', type: 'text' },
+    }
+  end
+
+  def self.notification_options
+    {
+      sender: { name: 'Sender', type: 'text' },
+    }
   end
 
   def account_data_validation(account)
-    return if !account
-    return if !account['api_key']
-    return if !account['api_url']
-    account
+    return [] if !account
+    return [] if !account['api_key']
+    return [] if !account['api_url']
+    []
   end
 
   def send(options)
